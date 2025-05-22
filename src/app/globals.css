@@ -1,11 +1,17 @@
-@import "tailwindcss";
-
+@import 'tailwindcss';
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --main-color: #4f46e5;
 }
-
-@theme inline {
+@font-face {
+  font-family: 'Cascadia Mono'; /* Nombre que usarás para referirte a la fuente */
+  src: url('/fonts/Cascadia_Mono/CascadiaMono-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900; /* Cascadia Mono es una fuente variable, esto cubre todos los pesos */
+  font-style: normal;
+  font-display: swap;
+}
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
@@ -14,7 +20,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #1a1a1a;
     --foreground: #ededed;
   }
 }
