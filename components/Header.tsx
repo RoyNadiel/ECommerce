@@ -33,7 +33,7 @@ export default function Header(){
             <a href="/" className='inline-flex justify-center items-center gap-3 mr-10'>
                 <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo"
                 />
-                <h2 className='font-bold text-2xl text-white'>Mercadoriteño</h2>
+                <h2 className='font-inconsolata[400] tracking-wider font-bold text-2xl text-white'>Mercadoriteño</h2>
             </a>
                                                 {/* Button Dropdown */}
             <div className='flex items-center justify-center'  ref={dropdownRef}>
@@ -81,7 +81,7 @@ export default function Header(){
             <button className='w-10 h-10 p-2 ml-3
                          border border-gray-300 rounded-md cursor-pointer 
                          lg:hidden'>
-                </button>
+            </button>
                                                 {/* Menu de Navegación */}
             <nav className="hidden lg:flex md:items-center md:gap-4">
                 <ul className='flex gap-4'>

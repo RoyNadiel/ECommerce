@@ -1,16 +1,42 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Geist, Geist_Mono} from "next/font/google";
+import { Inconsolata, Roboto, Quicksand, Jura, Sen} from "next/font/google";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+const quicksand = Quicksand({
+  variable:'--font-quicksand',
+  subsets:['latin'],
+  display: 'swap',
+  weight: ['700']
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+//         MONOSPACE
+export const inconsolata = Inconsolata({
+  variable: "--font-Inconsolata",
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['600'],
 });
+//          NORMAL
+export const roboto = Roboto ({
+  variable: "--font-roboto",
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['500']
+})
+//           LIGHT
+export const jura = Jura ({
+  variable: '--font-jura',
+  subsets:['latin'],
+  display: 'swap',
+  weight:['300']
+})
+export const sen = Sen({
+  variable: '--font-sen',
+  subsets: ['latin'],
+  display: 'swap',
+  weight: ['800']
+})
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -22,7 +48,8 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   return (
     <html lang="es">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${quicksand.className} ${inconsolata.variable} ${roboto.variable} ${jura.variable}
+      ${sen.variable} antialiased`}>
         {children}
       </body>
     </html>

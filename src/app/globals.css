@@ -9,6 +9,9 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --font-family-spaceMono: var(--font-space-mono), monospace;
+  --font-family-roboto: var(--font-roboto), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,8 +29,19 @@ body {
 
 @theme{
   --breakpoint-xl: 87rem;
+
+  --color-productBg: #2B7FFF;
+  --color-sectionBg: #1C398E;
+
+  --font-inconsolata: "Inconsolata", "mono";
+  --font-roboto: "Roboto", "sans";
+  --font-jura: "Jura", "serif";
+  --font-sen: "Sen", "sans";
 }
 
 .liItem{
   @apply text-gray-300 hover:text-blue-300 transition ease-in-out duration-200 transform hover:scale-105;
+}
+.productTitle{
+  @apply font-bold text-sm md:text-lg text-black uppercase;
 }

@@ -2,7 +2,7 @@ import Database from "better-sqlite3";
 import type { Database as DatabaseType } from "better-sqlite3";
 import path from 'path';
 
-const dbPath = path.join(process.cwd(), 'chinook.db');
+const dbPath = path.join(process.cwd(), '/ShopDB/ShopDataBase.db');
 
 let db: DatabaseType | null = null;
 
