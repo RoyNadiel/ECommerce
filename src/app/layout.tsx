@@ -10,27 +10,22 @@ const quicksand = Quicksand({
 })
 
 //         MONOSPACE
-export const inconsolata = Inconsolata({
-  variable: "--font-Inconsolata",
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['600'],
-});
+const inconsolata = Inconsolata({ subsets: ['latin'], variable:"--font-inconsolata" });
 //          NORMAL
-export const roboto = Roboto ({
+const roboto = Roboto ({
   variable: "--font-roboto",
   subsets: ['latin'],
   display: 'swap',
   weight: ['500']
 })
 //           LIGHT
-export const jura = Jura ({
+const jura = Jura ({
   variable: '--font-jura',
   subsets:['latin'],
   display: 'swap',
   weight:['300']
 })
-export const sen = Sen({
+const sen = Sen({
   variable: '--font-sen',
   subsets: ['latin'],
   display: 'swap',

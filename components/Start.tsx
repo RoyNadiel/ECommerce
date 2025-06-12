@@ -43,16 +43,18 @@ export default function Start(){
         if (data && data.monitors && data.monitors.bcv) {
           setBcvRate(data.monitors.bcv.price);
         }
-      } catch (err: any) {
-        setError(err.message || "Error desconocido al obtener la tasa del BCV.");
-        console.error("Error al obtener la tasa del BCV:", err);
+      } catch (err) {
+        if (err instanceof Error) {
+          setError(err.message);
+        }
+        console.error("Error al obtener la tasa del BCV:", error);
       } finally {
         setLoading(false);
       }
     }
 
     fetchAndSetBcvRate();
-  }, []); // El array vacío asegura que este efecto se ejecute solo una vez al montar
+  }, [error]); // El array vacío asegura que este efecto se ejecute solo una vez al montar
 
 
     return (

@@ -16,8 +16,8 @@ export async function GET() {
         shoes = stmt.all() as Shoe[];
         // console.log('Fetched shoes:', shoes);
       }catch (err) {
-        console.error('Error fetching shoes:');
         error = 'Failed to fetch shoes: \n' + err;
+        console.error('Error fetching shoes:', error);        
       }
 //   const products = db.prepare('SELECT * FROM products').all();
   return NextResponse.json(shoes);
