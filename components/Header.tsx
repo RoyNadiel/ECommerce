@@ -1,5 +1,6 @@
 "use client"
 import React, { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 
 export default function Header(){
     // 1. Estado para controlar la visibilidad del dropdown
@@ -30,11 +31,11 @@ export default function Header(){
         <header className='h-20 w-full bg-blue-950 flex items-center justify-between px-5 py-2 fixed
         lg:justify-around'>
                                                 {/* Logo y h2 */}
-            <a href="/" className='inline-flex justify-center items-center gap-3 mr-10'>
+            <Link href="/" className='inline-flex justify-center items-center gap-3 mr-10'>
                 <img src="https://flowbite.com/docs/images/logo.svg" alt="Flowbite Logo"
                 />
                 <h2 className='font-inconsolata[400] tracking-wider font-bold text-2xl text-white'>Mercadoriteño</h2>
-            </a>
+            </Link>
                                                 {/* Button Dropdown */}
             <div className='flex items-center justify-center'  ref={dropdownRef}>
                 <button onClick={toggleDropdown} 

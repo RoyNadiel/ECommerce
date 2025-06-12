@@ -7,12 +7,12 @@ interface ShoeCardProps{
     brand: Shoe['brand'];
     size: Shoe['size'];
     price: Shoe['price'];
-    color: Shoe['color'];
+    // color: Shoe['color'];
     image_url: Shoe['image_url'];
     shareId: (value:number) => void;
 }
 
-export default function ProductCard({ shoes_id , brand, size, price, color, image_url, shareId }: ShoeCardProps){    
+export default function ProductCard({ shoes_id , brand, size, price, image_url, shareId }: ShoeCardProps){    
 
     return (
         <div onClick={() => shareId(shoes_id)} className='h-fit w-25 static bg-productBg rounded-md p-2 mb-8 text-center hover:scale-105 hover:bg-blue-300 transition-all cursor-pointer duration-250

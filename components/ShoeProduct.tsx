@@ -8,7 +8,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 interface ShoeCardProps {
-    shoes_id: Shoe['shoes_id']
     brand: Shoe['brand'];
     size: Shoe['size'];
     price: Shoe['price'];
@@ -17,7 +16,7 @@ interface ShoeCardProps {
     image_url: Shoe['image_url'];
     onDeselectProduct: () => void;    
 }
-export default function ShoeProduct({ shoes_id, brand, size, price, bcvRate, color, image_url, onDeselectProduct }: ShoeCardProps){
+export default function ShoeProduct({ brand, size, price, bcvRate, color, image_url, onDeselectProduct }: ShoeCardProps){
 
     return (
         <div className='w-screen h-screen fixed bg-productBg/50 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 px-30 py-50
@@ -25,7 +24,7 @@ export default function ShoeProduct({ shoes_id, brand, size, price, bcvRate, col
         md:flex md:p-40 md:px-50 md:top-1/2 sm:left1/2 md:-translate-x-1/2 md:-translate-y-1/2
         xl:flex xl:p-50 xl:px-80 xl:top-1/2 sm:left1/2 xl:-translate-x-1/2 xl:-translate-y-1/2
         '>
-            <div className='flex max-w-100 justify-center items-center relative bg-blue-400 border-4 border-r-0 border-blue-500 rounded-l-md'>
+            <div className='flex max-w-100 relative bg-blue-400 border-4 border-r-0 border-blue-500 rounded-l-md'>
                 <Swiper 
                 modules={[Navigation, Pagination, Autoplay]}
                 spaceBetween={0}
@@ -41,7 +40,7 @@ export default function ShoeProduct({ shoes_id, brand, size, price, bcvRate, col
                     <SwiperSlide><Image src="/products/Sharingan.png" alt="Rinnegan" width={500} height={550} className='aspect-square object-contain' ></Image></SwiperSlide>
                 </Swiper>
             </div>
-            <section className='flex-col w-full h-auto relative bg-productBg border-4 border-l-0 border-blue-500 rounded-r-md'>
+            <section className='flex-col w-full h-auto bg-productBg border-4 border-l-0 border-blue-500 rounded-r-md'>
                     
                 <article className='h-full flex flex-col grow px-8 py-5 bg-productBg
                 xl:w-full

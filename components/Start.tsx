@@ -11,17 +11,19 @@ export default function Start(){
   const [selectedProduct, setSelectedProduct] = useState<Shoe | null>(null);
 
   const [shoes, setShoes] = useState<Shoe[]>([]);
-  const [errorPrdoucts, setErrorProducts] = useState('');
+  const [loadingProducts, setLoadingProducts] = useState(true);
+  const [errorProducts, setErrorProducts] = useState('');
 
   useEffect(() => {
     fetchProducts()
       .then(setShoes)
-      .catch(err => setErrorProducts(err.message));
+      .catch(err => setErrorProducts(err.message))
+      .finally(() => setLoadingProducts(false));
   }, []);
 
   const handleClick = (id:number) => {
     setIdProduct(id);
-    const product = shoes.find(shoe => shoe.shoes_id === id);
+    const product = shoes.find(shoe => shoe.shoes_id === idProduct);
     setSelectedProduct(product || null);
     document.body.classList.add('overflow-hidden');
     console.log('Producto seleccionado:', product);
@@ -40,8 +42,6 @@ export default function Start(){
 
         if (data && data.monitors && data.monitors.bcv) {
           setBcvRate(data.monitors.bcv.price);
-        } else {
-          setError("No se pudo obtener el precio del BCV de la API.");
         }
       } catch (err: any) {
         setError(err.message || "Error desconocido al obtener la tasa del BCV.");
@@ -68,38 +68,48 @@ export default function Start(){
             md:grid-cols-4 md:gap-5
             xl:grid-cols-4 xl:gap-10">
                 <h4 className='font-inconsolata col-span-full text-4xl tracking-widest'>DISPONIBLE</h4>
-          {errorPrdoucts && <p className='text-xl tracking-wide'>{errorPrdoucts}</p>}
-          {Array.isArray(shoes) && shoes.length === 0 && !errorPrdoucts ? (
-                  <p>No hay zapatos disponibles o la base de datos está vacía.</p>
-                ) : (
-              shoes.map((shoe:Shoe) => (
+                      
+                {loadingProducts && (
+                  <div className="text-center w-auto h-auto">
+                    <p className="font-2xl">Cargando productos...</p>
+                  </div>
+                )}
+                {errorProducts && (
+                  <p className="text-xl tracking-wide">{errorProducts}</p>
+                )}
+                {!loadingProducts && !errorProducts && (
+                  <>
+                    {Array.isArray(shoes) && shoes.length === 0 && !errorProducts ? (
+                      <p>No hay zapatos disponibles o la base de datos está vacía.</p>
+                    ) : (
+                      shoes.map((shoe: Shoe) => (
                         <ProductCard
-                            key={shoe.shoes_id}
-                            shoes_id={shoe.shoes_id}
-                            brand={shoe.brand}
-                            size={shoe.size}
-                            price={shoe.price}                            
-                            color={shoe.color}
-                            image_url={shoe.image_url}                            
-                            shareId={handleClick}
+                          key={shoe.shoes_id}
+                          shoes_id={shoe.shoes_id}
+                          brand={shoe.brand}
+                          size={shoe.size}
+                          price={shoe.price}
+                          image_url={shoe.image_url}
+                          shareId={handleClick}
                         />
-                    ))
-                ) }
+                      ))
+                    )}
 
-                {selectedProduct && 
-                <ShoeProduct 
-                shoes_id={selectedProduct.shoes_id}
-                brand={selectedProduct.brand}
-                size={selectedProduct.size}
-                price={selectedProduct.price}
-                bcvRate={bcvRate ?? 0}
-                color={selectedProduct.color}                
-                image_url={selectedProduct.image_url}
-                onDeselectProduct={onDeselectProduct}>
-                  
-                </ShoeProduct>
-                }
-            </section>
-        </div>
-    )
-}
+                    {error && bcvRate === 0}
+                    {selectedProduct && !error && !loading &&
+                      <ShoeProduct
+                        brand={selectedProduct.brand}
+                        size={selectedProduct.size}
+                        price={selectedProduct.price}
+                        bcvRate={bcvRate ?? 0}
+                        color={selectedProduct.color}
+                        image_url={selectedProduct.image_url}
+                        onDeselectProduct={onDeselectProduct}
+                      />
+                    }
+                  </>
+                )}
+                  </section>
+        </       div>
+    )      
+}      

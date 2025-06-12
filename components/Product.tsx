@@ -26,7 +26,7 @@ export function ProductDetails({ status, name, price, paymentMethod, color, stoc
                     <p className='text-gray-600 text-sm self-start'>{status}</p>
                     <h2 className='productTitle'>{name}</h2>
                     <h3 className='text-5xl font-bold text-green-900'>US${price}</h3>
-                    <p className='text-gray-600 selft-start'>Metodos de Pago</p>
+                    <p className='text-gray-600 selft-start'>Metodos de Pago: {paymentMethod}</p>
                     <p className='text-gray-800 text-sm selft-start'>Efectivo, Pago Movil, Transferencia Bancaria</p>
                     <p className='text-sm text-gray-800'>Color: {color}</p>
                     <p>Stock: {stock}</p>

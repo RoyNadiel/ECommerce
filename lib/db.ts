@@ -14,7 +14,7 @@ function getDb(){
 
         }
         catch (error){
-            console.error('Error al conectar a la bases de datos SQLite')
+            console.error('Error al conectar a la bases de datos SQLite', error)
         }
     }
     return db;
