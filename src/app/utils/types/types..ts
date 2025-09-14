@@ -3,7 +3,6 @@ export type Shoe = {
   name:string;
   size:string;
   price:number;
-  bcvRate?: number;
   color?:string;
   image_url:string;
   categories: {

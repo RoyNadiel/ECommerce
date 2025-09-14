@@ -1,4 +1,4 @@
-import { BcvRate } from "@/app/types/types.";
+import { BcvRate } from "@/app/utils/types/types.";
 
 export default async function FetchBcvRate(): Promise<string> {
   const res = await fetch('https://api.dolarvzla.com/public/exchange-rate');

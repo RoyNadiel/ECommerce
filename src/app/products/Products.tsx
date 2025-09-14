@@ -1,7 +1,7 @@
 'use client'
 import { useState, useMemo } from "react";
 import { ProductCard } from '../components/ProductCard';
-import { Shoe } from '../types/types.';
+import { Shoe } from '../utils/types/types.';
 import { Search, Tag, ArrowUpNarrowWideIcon, Package, Filter, TrendingUp, TrendingDown } from 'lucide-react';
 
 type Props = {

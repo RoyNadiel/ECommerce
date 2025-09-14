@@ -1,6 +1,8 @@
 import { getShoes } from "../services/supabase/FetchProducts";
 import Products from "./Products";
 
+export const revalidate = 60 // segundos
+
 export default async function ProductsPage() {
 
   const shoes = await getShoes();

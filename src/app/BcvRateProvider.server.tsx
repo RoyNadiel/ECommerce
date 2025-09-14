@@ -1,7 +1,7 @@
 // app/providers/BcvRateProvider.server.tsx
 import { ReactNode } from "react";
 import { BcvRateProviderClient } from "./BcvRateProvider.client";
-import { BcvRate } from "./types/types.";
+import { BcvRate } from "./utils/types/types.";
 
 async function fetchBcvRate(): Promise<number> {
   const res = await fetch("https://api.dolarvzla.com/public/exchange-rate", {

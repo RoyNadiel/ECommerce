@@ -1,7 +1,6 @@
 'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import { ThemeToggle } from '../utils/ThemeToggle';
 
 export default function Header(){
   return (
@@ -19,10 +18,7 @@ export default function Header(){
               <li className='liItem'><a href="/products">Productos</a></li>
               <li className='liItem'><a href="#">Contacto</a></li>
           </ul>
-        </nav>
-        <div className="hidden sm:block absolute right-14">
-          <ThemeToggle/>
-        </div>
+        </nav>        
     </header>
   )
 }

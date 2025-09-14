@@ -1,7 +1,7 @@
 'use client'
 import Image from "next/image";
 import { Tag, ShoppingCartIcon } from "lucide-react";
-import { Shoe } from "../types/types.";
+import { Shoe } from "../utils/types/types.";
 import { useBcvRate } from "../BcvRateProvider.client";
 
 

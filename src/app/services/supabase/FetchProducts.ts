@@ -1,17 +1,16 @@
-import { createClient } from "./client"
-import { Shoe } from "../../types/types.";
+// lib/data/getShoes.ts
+import { supabase } from '../supabase/client'
+import { Shoe } from '../../utils/types/types.'
 
 export async function getShoes(): Promise<Shoe[]> {
-  const supabase = await createClient();
-
   const { data: shoes, error } = await supabase
-    .from<any, Shoe>("shoes")
-    .select("shoes_id, name, size, price, image_url, categories(name)");
+    .from<any, Shoe>('shoes')
+    .select('shoes_id, name, size, price, image_url, categories(name)')
 
   if (error) {
-    console.error("Error fetching shoes:", error);
-    return [];
+    console.error('Error fetching shoes:', error)
+    return []
   }
 
-  return shoes ?? [];
+  return shoes ?? []
 }
