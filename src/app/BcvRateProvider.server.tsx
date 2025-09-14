@@ -16,7 +16,7 @@ async function fetchBcvRate(): Promise<number> {
   return data?.current.usd ?? 0;
 }
 
-export async function BcvRateProviderServer({ children }: { children: ReactNode }) {
+export default async function BcvRateProviderServer({ children }: { children: ReactNode }) {
   const rate = await fetchBcvRate();
 
   return (

@@ -136,7 +136,7 @@ export default function Products({ shoes }: Props) {
           {filteredShoes.length} Productos encontrados
         </label>
         {(category !== "TodasLasCategorias" || stock !== "TodosLosProductos" || priceOrder !== "SinOrdenar") && (
-          <div className="w-full h-full col-span-full pt-4 border-t mt-4 border-gray-600 dark:border-gray-500">
+          <div className="w-full h-full col-span-full pt-4 border-t mt-4 border-gray-400 dark:border-gray-500">
             <div className="inline-flex flex-wrap gap-x-4">
               {category !== "TodasLasCategorias" && (
                 <span className="inline-flex w-fit text-md items-center gap-x-1 px-4 py-2 rounded-full font-medium bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300">

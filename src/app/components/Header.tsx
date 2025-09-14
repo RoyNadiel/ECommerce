@@ -13,7 +13,7 @@ export default function Header(){
           <h2 className='font-jura tracking-wider text-2xl font-extrabold text-black dark:text-white'>Norbelys Tienda</h2>
         </Link>
                                             {/* Menu de Navegación */}
-        <nav className="flex md:items-center md:gap-x-8">
+        <nav className="flex md:items-center md:gap-x-10">
           <ul className='flex gap-4'>
               <li className='liItem'><a href="/">Inicio</a></li>
               <li className='liItem'><a href="/products">Productos</a></li>
