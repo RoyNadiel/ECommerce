@@ -10,6 +10,7 @@
     "clean": "rd /s /q .next && rd /s /q node_modules && npm install"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.57.4",
     "@tailwindcss/cli": "^4.1.7",
     "better-sqlite3": "^11.10.0",
     "lucide-react": "^0.511.0",

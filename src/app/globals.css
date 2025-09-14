@@ -1,6 +1,8 @@
 @import 'tailwindcss';
 @custom-variant dark (&:where(.dark, .dark *));
-
+*{
+  outline: none;
+}
 @theme{
   --color-productBg: #2B7FFF;
   --color-sectionBg: #1C398E;
