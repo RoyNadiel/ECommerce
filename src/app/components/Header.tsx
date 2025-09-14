@@ -14,9 +14,9 @@ export default function Header(){
                                             {/* Menu de Navegación */}
         <nav className="flex md:items-center md:gap-x-10">
           <ul className='flex gap-4'>
-              <li className='liItem'><a href="/">Inicio</a></li>
-              <li className='liItem'><a href="/products">Productos</a></li>
-              <li className='liItem'><a href="#">Contacto</a></li>
+              <li className='liItem'><Link href="/">Inicio</Link></li>
+              <li className='liItem'><Link href="/products">Productos</Link></li>
+              <li className='liItem'><Link href="#">Contacto</Link></li>
           </ul>
         </nav>        
     </header>

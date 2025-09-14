@@ -1,5 +1,5 @@
 'use client'
-import { useState, useMemo } from "react";
+import { useDeferredValue ,useState, useMemo } from "react";
 import { ProductCard } from '../components/ProductCard';
 import { Shoe } from '../utils/types/types.';
 import { Search, Tag, ArrowUpNarrowWideIcon, Package, Filter, TrendingUp, TrendingDown } from 'lucide-react';
@@ -9,25 +9,31 @@ type Props = {
 };
 
 export default function Products({ shoes }: Props) {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState("TodasLasCategorias");
-  const [stock, setStock] = useState("TodosLosProductos");
-  const [priceOrder, setPriceOrder] = useState("SinOrdenar");
+const [query, setQuery] = useState("");
+const [category, setCategory] = useState("TodasLasCategorias");
+const [stock, setStock] = useState("TodosLosProductos");
+const [priceOrder, setPriceOrder] = useState("SinOrdenar");
 
-  const filteredShoes = useMemo(() => {
-    return shoes.filter(s => {
-      if (query && !s.name.toLowerCase().includes(query.toLowerCase())) return false;
+// Creamos una versión diferida de query
+const deferredQuery = useDeferredValue(query);
+
+const filteredShoes = useMemo(() => {
+  return shoes
+    .filter((s) => {
+      if (deferredQuery && !s.name.toLowerCase().includes(deferredQuery.toLowerCase())) return false;
       if (category !== "TodasLasCategorias" && s.categories?.name !== category) return false;
       // Stock filtrado si quieres activarlo
       // if (stock === "Stock" && s.size === 0) return false;
       // if (stock === "Sin Stock" && s.size > 0) return false;
       return true;
-    }).sort((a, b) => {
+    })
+    .sort((a, b) => {
       if (priceOrder === "MenorPrecio") return a.price - b.price;
       if (priceOrder === "MayorPrecio") return b.price - a.price;
       return 0;
     });
-  }, [shoes, query, category, stock, priceOrder]);
+}, [shoes, deferredQuery, category, priceOrder]);
+
 
   const clearFilters = () => {
     if(query || category !== "TodasLasCategorias" || priceOrder !== "SinOrdenar"){

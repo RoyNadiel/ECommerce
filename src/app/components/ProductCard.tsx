@@ -58,14 +58,23 @@ export function ProductCard(productProps: Shoe) {
       </div>
 
       {/* Content */}
-      <div className="p-6">
-        {/* Product Name */}
-        <h3 className="text-lg text-left font-semibold text-gray-900 dark:text-gray-100 mb-2 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-          {productProps.name}
-        </h3>
+      <div className="flex flex-col items-start p-6">
+        {/* Product Name & Color*/}
+        <div className="w-full inline-flex justify-between items-center gap-2">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+            {productProps.name}
+            <span className="text-md text-gray-700 dark:text-gray-300">#{productProps.size}</span>
+          </h3>
+          <span className="text-md text-gray-700 dark:text-gray-300">
+            {productProps.color}
+          </span>
+        </div>
+        {/* Size */}
+        <div className="mb-2">
+        </div>
 
         {/* Price */}
-        <div className="flex flex-col items-start mb-4">
+        <div className="flex flex-col mb-4">
           <span className="text-2xl font-bold text-gray-900 dark:text-gray-100">
             {formatPrice(productProps.price, "USD")}
           </span>
