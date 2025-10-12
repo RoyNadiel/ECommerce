@@ -1,12 +1,13 @@
 @import 'tailwindcss';
+@plugin "@midudev/tailwind-animations";
 @custom-variant dark (&:where(.dark, .dark *));
 *{
   outline: none;
 }
-@theme{
-  --color-productBg: #2B7FFF;
-  --color-sectionBg: #1C398E;
 
+@theme{
+
+  
   --font-inconsolata: "Inconsolata", "mono";
   --font-roboto: "Roboto", "sans";
   --font-jura: "Jura", "serif";

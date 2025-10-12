@@ -3,5 +3,5 @@ import { createClient as createSupabaseClient } from '@supabase/supabase-js'
 
 export const supabase = createSupabaseClient(
   process.env.NEXT_PUBLIC_PROJECT_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_KEY! // anon key
+  process.env.NEXT_PUBLIC_ANON_KEY! // anon key
 )

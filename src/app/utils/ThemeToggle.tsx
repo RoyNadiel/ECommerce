@@ -60,7 +60,7 @@ export function ThemeToggle() {
       </button>
 
       {/* Menú hover */}
-      <div className="absolute left-1/2 -translate-x-1/2 mt-1 w-36 rounded-xl bg-white dark:bg-gray-900 shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity">
+      <div className="absolute left-1/2 -translate-x-1/2 top-full w-36 rounded-xl bg-white dark:bg-gray-900 shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity">
         <ul className="flex flex-col">
           <li>
             <button

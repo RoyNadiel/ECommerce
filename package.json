@@ -10,14 +10,13 @@
     "clean": "rd /s /q .next && rd /s /q node_modules && npm install"
   },
   "dependencies": {
+    "@midudev/tailwind-animations": "^0.2.0",
     "@supabase/supabase-js": "^2.57.4",
     "@tailwindcss/cli": "^4.1.7",
-    "better-sqlite3": "^11.10.0",
     "lucide-react": "^0.511.0",
     "next": "15.3.2",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "swiper": "^11.2.8"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
