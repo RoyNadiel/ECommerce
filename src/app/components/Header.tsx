@@ -2,7 +2,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X, Store } from "lucide-react";
+import { Menu, X, CloudSunRain } from "lucide-react";
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,7 +14,10 @@ export default function Header() {
     >
       {/* Logo y h2 */}
       <Link href="/" className="inline-flex justify-center items-center gap-2">
-        <Store color="#0099DD" size={24}></Store>
+        <CloudSunRain
+          className="text-yellow-500 dark:text-blue-400"
+          size={24}
+        />
         <h2 className="font-jura tracking-wider text-lg md:text-2xl font-extrabold text-black dark:text-white">
           {" "}
           Almarys Tienda
@@ -55,19 +58,19 @@ export default function Header() {
       >
         <div className="px-6 py-2 space-y-1">
           <Link
-            href="#home"
+            href="/"
             className="text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300"
           >
             Inicio
           </Link>
           <Link
-            href="#features"
+            href="/products"
             className="text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300"
           >
             Productos
           </Link>
           <Link
-            href="#contact"
+            href="#"
             className="text-gray-700 
                 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300"
           >

@@ -3,7 +3,15 @@ import Image from "next/image";
 import { Product } from "../utils/types/types.";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useState } from "react";
-import { X, ShoppingCart, Check, Sparkles, Share2 } from "lucide-react";
+import {
+  X,
+  ShoppingCart,
+  Check,
+  Sparkles,
+  Share2,
+  ArrowLeft,
+} from "lucide-react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 type ProductDetails = {
@@ -17,6 +25,8 @@ export default function ProductDetails({
   onDeselectProductAction,
 }: ProductDetails) {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const router = useRouter();
+  const goBack = () => router.back();
   const images: string[] = [
     product.image_url,
     "/Sharingan.png",
@@ -51,7 +61,7 @@ export default function ProductDetails({
   return (
     // SCREEN
     <div
-      className="w-full min-h-screen grid place-items-start gap-x-4 px-4 pt-22 bg-transparent
+      className="w-full min-h-screen grid place-items-start gap-4 px-4 pt-22 bg-transparent
         md:grid-cols-[auto_1fr] md:pb-4 md:px-12"
     >
       {/* Panel de Navegacion de Imagenes */}
@@ -80,9 +90,16 @@ export default function ProductDetails({
       )}
       {/* MAIN */}
       <section
-        className="flex flex-col items-center h-fit w-full bg-white dark:bg-gray-900 rounded-r-md shadow shadow-blue-900 px-6 pb-4 
+        className="relative flex flex-col items-center h-fit w-full bg-white dark:bg-gray-900 rounded-r-md shadow shadow-blue-900 px-6 py-4 
             md:flex-row md:px-8 md:py-5"
       >
+        <button
+          onClick={goBack}
+          className="absolute top-3 right-1.5 sm:top-5 sm:right-5 inline-flex items-center gap-1 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-lg px-2 py-1 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-30"
+        >
+          <ArrowLeft className="w-4 sm:w-8" />
+          Volver
+        </button>
         {/* Main Image */}
         <div className="w-fit h-full grow relative flex justify-center items-center overflow-hidden group bg-white dark:bg-gray-900">
           <Image
@@ -116,6 +133,7 @@ export default function ProductDetails({
             <ZoomIn className="w-5 h-5 text-gray-700" />
           </div>
         </div>
+
         {/* MAIN ARTICLE */}
         <article className="w-full h-full flex flex-col justify-between gap-y-8 basis-1/2">
           {/* NOMBRE / ESTADO / TALLA */}

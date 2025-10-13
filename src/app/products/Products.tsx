@@ -69,7 +69,7 @@ export default function Products({ products }: Props) {
         filteredProducts={filteredProducts.length}
       />
       {/* Productos */}
-      <div className="w-full flex flex-wrap justify-center items-center gap-4">
+      <div className="w-full flex flex-wrap justify-center items-center gap-2">
         {filteredProducts.map((product) => (
           <Link
             key={product.product_id}

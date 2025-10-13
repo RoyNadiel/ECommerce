@@ -33,7 +33,7 @@ export default function RootLayout({
       bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900`}
       >
         <BcvRateProviderServer>
-          <div className="fixed hidden z-20 md:block top-2.5 right-14">
+          <div className="fixed hidden z-30 md:block top-2.5 right-14">
             <ThemeToggle />
           </div>
           <Header />

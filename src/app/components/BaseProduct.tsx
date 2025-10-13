@@ -33,78 +33,58 @@ export function BaseProduct(productProps: Product) {
 
   return (
     <div
-      className="group relative bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl hover:border hover:border-blue-500 transition-transform duration-300 transform hover:-translate-y-1 overflow-hidden animate-slide-in-top"
+      className="flex flex-col min-w-36 h-65 md:h-100 w-full group grid-rows-[1fr_auto]
+      bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl hover:border hover:border-blue-500 transition-transform duration-300 transform overflow-hidden animate-slide-in-top"
       onClick={() => setOnSelectProduct(productProps)}
     >
       {/* Image Container */}
-      <div className="relative flex min-w-40 min-h-45 justify-center items-center aspect-square overflow-hidden">
+      <div className="grow relative flex min-w-30 justify-center items-center overflow-hidden">
         <Image
           src={productProps.image_url}
           alt={productProps.name}
           width={140}
           height={140}
-          className="w-38 border-blue-300 h-fit object-contain group-hover:scale-105 transition-transform duration-300
+          className="w-25 border-blue-300 h-fit object-contain group-hover:scale-105 transition-transform duration-300
           md:w-65"
         />
 
         {/* Category Badge*/}
-        <div className="absolute top-3 left-3">
-          <span
-            className={`inline-flex items-center gap-1 px-2 py-1 rounded-full text-[10px] sm:text-xs font-medium ${badgeColor} backdrop-blur-sm text-gray-100 dark:text-gray-200 shadow-sm`}
-          >
-            <Tag size={12} />
-            {categoryName}
-          </span>
-        </div>
+        <span
+          className={`absolute top-3 left-3 inline-flex justify-center items-center gap-1 px-2 py-1 rounded-full text-[10px] xs:text-xs sm:text-sm font-medium ${badgeColor} backdrop-blur-sm text-gray-100 dark:text-gray-200 shadow-sm`}
+        >
+          <Tag size={12} />
+          {categoryName}
+        </span>
 
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
       </div>
 
       {/* Content */}
-      <div className="flex flex-col justify-evenly items-start px-4 pb-2">
+      <div className="flex flex-col items-start px-4 py-2">
         {/* PRODUCT STATE */}
         {/* <div className="text-[8px] md:text-xs font-medium text-gray-700 dark:text-gray-300">
             {productProps.state}
         </div> */}
         {/* Product Name & Color*/}
-        <div className="w-full inline-flex justify-between items-center gap-2">
-          <h3
-            className="text-sm font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200
-          md:text-lg"
-          >
-            {productProps.name}
-            {(productProps.category === "Calzado" ||
-              productProps.category === "Prenda") && (
-              <span className="ml-2 text-xs md:text-md text-gray-700 dark:text-gray-300">
-                #{productProps.size}
-              </span>
-            )}
-          </h3>
-          {/* PRODUCT COLOR  */}
+        <h3
+          className="text-xs xs:text-sm font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200
+        md:text-lg"
+        >
+          {productProps.name}
           {(productProps.category === "Calzado" ||
             productProps.category === "Prenda") && (
-            <span className="relative text-xs md:text-md text-gray-700 dark:text-gray-300">
-              {productProps.color}
-              {productProps.category === "Prenda" && (
-                <span className="absolute top-full left-1/2 -translate-x-1/2 text-xs md:text-md text-gray-700 dark:text-gray-300">
-                  {productProps.brand}
-                </span>
-              )}
+            <span className="ml-2 text-xs md:text-md lg:text-lg text-gray-700 dark:text-gray-300">
+              #{productProps.size}
             </span>
           )}
-        </div>
-        {/* PRODUCT STOCK */}
-        {/* <div className="text-xs md:text-md font-medium text-gray-700 dark:text-gray-300">
-            Cantidad: {productProps.stock}
-        </div> */}
-
+        </h3>
         {/* Price */}
         <div className="flex flex-col mb-4">
-          <span className="text-sm md:text-xl font-bold text-green-600 dark:text-green-400">
+          <span className="text-xs xs:text-sm md:text-xl font-bold text-green-600 dark:text-green-400">
             {formatPrice(productProps.price, "USD")}
           </span>
-          <span className="text-xs md:text-md text-gray-600 dark:text-gray-400 dark:group-hover:text-white group-hover:text-black transition-colors duration-200">
+          <span className="text-ss xs:text-xs md:text-md font-medium text-gray-600 dark:text-gray-400 dark:group-hover:text-white group-hover:text-black transition-colors duration-200">
             {formatPrice(priceVES, "VES")}
           </span>
         </div>
@@ -118,13 +98,6 @@ export function BaseProduct(productProps: Product) {
           Comprar
         </button> */}
       </div>
-
-      {/* {onSelectProduct && 
-      <ProductDetails 
-      product={productProps}
-      priceVES={priceVES}
-      onDeselectProductAction={() => setOnSelectProduct(null)}
-      ></ProductDetails>} */}
     </div>
   );
 }

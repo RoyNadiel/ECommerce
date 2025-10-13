@@ -2,15 +2,16 @@ export type BaseProduct = {
   product_id: number;
   name: string;
   price: number;
-  state: 'Nuevo' | 'Usado';
+  state: "Nuevo" | "Usado";
   stock: number;
-  caracteristicas: string[],
+  caracteristicas: string[];
   image_url: string;
 };
 
 export type Shoe = BaseProduct & {
   category: "Calzado";
   shoes_id?: number;
+  brand?: string;
   size?: string;
   color?: string;
 };
@@ -20,7 +21,7 @@ export type Prenda = BaseProduct & {
   prenda_id?: number;
   size?: number;
   brand?: string;
-  color?:string
+  color?: string;
 };
 
 export type Farmaco = BaseProduct & {
@@ -32,22 +33,22 @@ export type Product = Shoe | Prenda | Farmaco;
 
 export type Categories = {
   Calzado: string;
-  Prenda:string;
+  Prenda: string;
   Farmaco: string;
-}
+};
 export type BcvRate = {
-  "current": {
-    "usd": number,
-    "eur": number,
-    "date": string
-  },
-  "previous": {
-    "usd": number,
-    "eur": number,
-    "date": string
-  },
-  "changePercentage": {
-    "usd":number,
-    "eur": number
-  }
-}
+  current: {
+    usd: number;
+    eur: number;
+    date: string;
+  };
+  previous: {
+    usd: number;
+    eur: number;
+    date: string;
+  };
+  changePercentage: {
+    usd: number;
+    eur: number;
+  };
+};
