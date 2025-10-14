@@ -55,7 +55,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
   return (
     // SCREEN
     <div
-      className="w-full min-h-screen grid place-items-start gap-4 px-4 pt-22 bg-transparent
+      className="w-full min-h-screen grid place-items-start gap-4 px-4 pt-22 pb-4 bg-transparent
         md:grid-cols-[auto_1fr] md:pb-4 md:px-12"
     >
       {/* Panel de Navegacion de Imagenes */}

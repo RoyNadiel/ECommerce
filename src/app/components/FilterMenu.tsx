@@ -63,7 +63,7 @@ export default function FilterMwnu(props: Props) {
     <section>
       {/* Menu */}
       <div
-        className="sticky top-20 w-full grid grid-cols-1 gap-x-10 gap-y-3 p-3 md:p-5 z-10 
+        className="sticky top-20 w-full grid grid-cols-1 gap-x-10 gap-y-3 p-3 md:p-0 z-10 
         bg-white text-black dark:text-white dark:bg-gray-900 rounded-md shadow-md mb-14 border border-gray-300 dark:border-gray-800
         sm:grid-cols-2 lg:grid-cols-4"
       >
@@ -135,6 +135,7 @@ export default function FilterMwnu(props: Props) {
               <div className="relative">
                 <Tag className="absolute top-1/2 -translate-y-1/2 left-2 text-purple-300" />
                 <select
+                  autoFocus
                   name="Categorias"
                   className={`${selectBaseClass} border border-purple-300`}
                   value={category}
@@ -220,10 +221,6 @@ export default function FilterMwnu(props: Props) {
               </div>
             </div>
 
-            <span className="absolute text-sm md:text-md top-full right-2 mt-2 dark:text-gray-300 text-gray-500">
-              {filteredProducts} Productos encontrados
-            </span>
-
             {(category !== "TodasLasCategorias" ||
               stock !== "TodosLosProductos" ||
               priceOrder !== "SinOrdenar") && (
@@ -256,6 +253,9 @@ export default function FilterMwnu(props: Props) {
             )}
           </>
         )}
+        <span className="absolute text-sm md:text-md top-full right-2 mt-2 dark:text-gray-300 text-gray-500">
+          {filteredProducts} Productos encontrados
+        </span>
       </div>
     </section>
   );
