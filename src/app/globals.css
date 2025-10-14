@@ -6,7 +6,7 @@
 }
 
 @theme {
-  --breakpoint-xs: 370;
+  --breakpoint-xs: 450;
   --text-ss: 10px;
 
   --font-inconsolata: "Inconsolata", "mono";

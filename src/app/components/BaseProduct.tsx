@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Tag, ShoppingCartIcon } from "lucide-react";
+import { Tag } from "lucide-react";
 import { Product } from "../utils/types/types.";
 import { useBcvRate } from "../BcvRateProvider.client";
 import { useState } from "react";
@@ -33,12 +33,12 @@ export function BaseProduct(productProps: Product) {
 
   return (
     <div
-      className="flex flex-col min-w-36 h-65 md:h-100 w-full group grid-rows-[1fr_auto]
+      className="flex flex-col min-w-36 h-55 md:h-80 w-auto group grid-rows-[1fr_auto]
       bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl hover:border hover:border-blue-500 transition-transform duration-300 transform overflow-hidden animate-slide-in-top"
       onClick={() => setOnSelectProduct(productProps)}
     >
       {/* Image Container */}
-      <div className="grow relative flex min-w-30 justify-center items-center overflow-hidden">
+      <div className="grow relative flex min-w-30 justify-center items-center overflow-hidden pt-10">
         <Image
           src={productProps.image_url}
           alt={productProps.name}

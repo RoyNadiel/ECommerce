@@ -54,7 +54,7 @@ export default function Products({ products }: Props) {
   };
 
   return (
-    <div className="w-full min-h-screen px-2 md:px-12 pt-22">
+    <div className="w-full min-h-screen px-2 sm:px-12 pt-22">
       {/* FILTER MENU */}
       <FilterMenu
         query={query}
@@ -69,7 +69,18 @@ export default function Products({ products }: Props) {
         filteredProducts={filteredProducts.length}
       />
       {/* Productos */}
-      <div className="w-full flex flex-wrap justify-center items-center gap-2">
+      <div
+        className="
+    w-full 
+    grid
+    grid-cols-2
+    xs:grid-cols-3
+    lg:grid-cols-4
+    xl:grid-cols-5
+    2xl:grid-cols-6
+    gap-2
+  "
+      >
         {filteredProducts.map((product) => (
           <Link
             key={product.product_id}

@@ -40,7 +40,7 @@ export default async function Home() {
         </a>
 
         <div className="w-fit h-fit flex flex-wrap justify-center items-center gap-4">
-          {products.map((product) => (
+          {products.slice(0, 3).map((product) => (
             <Link
               key={product.product_id}
               href={`./products/${product.product_id}`}

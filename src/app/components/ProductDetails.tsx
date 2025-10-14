@@ -4,11 +4,10 @@ import { Product } from "../utils/types/types.";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useState } from "react";
 import {
-  X,
   ShoppingCart,
   Check,
   Sparkles,
-  Share2,
+  ClipboardCopy,
   ArrowLeft,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
@@ -52,7 +51,7 @@ export default function ProductDetails({
   const copyActualURL = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
-      alert("URL copiada al portapapeles");
+      // alert("URL copiada al portapapeles");
     } catch (err) {
       console.error("Error al copiar:", err);
     }
@@ -95,9 +94,9 @@ export default function ProductDetails({
       >
         <button
           onClick={goBack}
-          className="absolute top-3 right-1.5 sm:top-5 sm:right-5 inline-flex items-center gap-1 text-gray-700 dark:text-gray-300 text-xs sm:text-sm md:text-lg px-2 py-1 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-30"
+          className="absolute top-3 right-1.5 sm:top-2 lg:top-3 sm:right-5 inline-flex items-center gap-1 text-gray-700 dark:text-gray-300 text-xs sm:text-sm lg:text-md px-2 py-1 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
         >
-          <ArrowLeft className="w-4 sm:w-8" />
+          <ArrowLeft className="w-4 lg:w-5" />
           Volver
         </button>
         {/* Main Image */}
@@ -233,17 +232,17 @@ export default function ProductDetails({
           {/* BOTONES */}
           <div className="w-full inline-flex justify-evenly items-center gap-x-4 self-end">
             <button
-              className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-2xl text-black dark:text-white self-center cursor-pointer hover:bg-blue-600"
+              className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-2xl text-black dark:text-white self-center cursor-pointer hover:bg-blue-600 active:bg-blue-500"
               onClick={copyActualURL}
             >
-              <Share2 size={20}></Share2>Compartir
+              <ClipboardCopy size={18}></ClipboardCopy>Copiar URL
             </button>
             <Link
               className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow-2 justify-center items-center gap-x-2 bg-blue-800 rounded-2xl text-white self-center cursor-pointer hover:bg-blue-600"
               href={"https://wa.me/+584123087333"}
               target="_blank"
             >
-              <ShoppingCart size={20}></ShoppingCart>Comprar
+              <ShoppingCart size={18}></ShoppingCart>Comprar
             </Link>
           </div>
         </article>
