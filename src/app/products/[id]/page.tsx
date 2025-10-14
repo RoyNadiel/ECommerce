@@ -2,9 +2,9 @@
 import { products } from "../../data/products";
 import ProductDetailsClient from "./ProductDetailsClient"; // 👈 client wrapper
 
-type Props = { params: { id: string } };
+// type Props = { params: { id: string } };
 
-export default function ProductPage({ params }: Props) {
+export default function Page({ params }: { params: { id: string } }) {
   const product = products.find((p) => p.product_id.toString() === params.id);
   if (!product) return <h1>Producto no encontrado</h1>;
 

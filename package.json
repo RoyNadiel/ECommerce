@@ -36,7 +36,8 @@
   "pnpm": {
     "onlyBuiltDependencies": [
       "@parcel/watcher",
-      "unrs-resolver"
+      "unrs-resolver",
+      "@tailwindcss/oxide."
     ]
   }
 }
