@@ -10,8 +10,7 @@ import {
   ChevronUp,
 } from "lucide-react";
 // import { useClickAway } from "react-use";
-import { Squash as Hamburger } from "hamburger-react";
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 type Props = {
   query: string;
@@ -41,7 +40,7 @@ export default function FilterMwnu(props: Props) {
   } = props;
 
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef(null);
+  // const ref = useRef(null);
   // useClickAway(ref, () => {
   //   setIsOpen(false);
   // });

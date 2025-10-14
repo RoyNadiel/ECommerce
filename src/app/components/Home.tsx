@@ -1,4 +1,4 @@
-import { getShoes } from "../services/supabase/FetchProducts";
+// import { getShoes } from "../services/supabase/FetchProducts";
 import { BaseProduct } from "./BaseProduct";
 import { products } from "../data/products";
 import Link from "next/link";
@@ -30,14 +30,14 @@ export default async function Home() {
           </h4>
         </div>
 
-        <a
+        <Link
           data-interactive="true"
           title="Explorar Catalogo de Productos"
           className="flex justify-center items-center bg-indigo-800 tracking-widest font-semibold text-sm md:text-lg px-3 py-2 md:px-4 md:py-3 text-gray-200 rounded-xl transition-all duration-300 hover:scale-105 hover:bg-indigo-600 hover:shadow-3xl hover:shadow-indigo-600 animate-pop"
           href="/products"
         >
           ¡Explorar Catálogo!
-        </a>
+        </Link>
 
         <div className="w-fit h-fit flex flex-wrap justify-center items-center gap-4">
           {products.slice(0, 3).map((product) => (

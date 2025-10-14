@@ -4,7 +4,7 @@ import ProductDetailsClient from "./ProductDetailsClient"; // 👈 client wrappe
 
 type Props = { params: { id: string } };
 
-export default async function ProductPage({ params }: Props) {
+export default function ProductPage({ params }: Props) {
   const product = products.find((p) => p.product_id.toString() === params.id);
   if (!product) return <h1>Producto no encontrado</h1>;
 

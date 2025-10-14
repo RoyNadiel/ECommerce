@@ -16,13 +16,8 @@ import Link from "next/link";
 type ProductDetails = {
   product: Product;
   priceVES: number;
-  onDeselectProductAction: () => void;
 };
-export default function ProductDetails({
-  product,
-  priceVES,
-  onDeselectProductAction,
-}: ProductDetails) {
+export default function ProductDetails({ product, priceVES }: ProductDetails) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const router = useRouter();
   const goBack = () => router.back();

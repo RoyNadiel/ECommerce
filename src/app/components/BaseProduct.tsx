@@ -3,10 +3,8 @@ import Image from "next/image";
 import { Tag } from "lucide-react";
 import { Product } from "../utils/types/types.";
 import { useBcvRate } from "../BcvRateProvider.client";
-import { useState } from "react";
 
 export function BaseProduct(productProps: Product) {
-  const [onSelectProduct, setOnSelectProduct] = useState<Product | null>(null);
   const bcvRate = useBcvRate();
   const formatPrice = (price: number, currency: string) => {
     return new Intl.NumberFormat("es-VE", {
@@ -35,7 +33,6 @@ export function BaseProduct(productProps: Product) {
     <div
       className="flex flex-col min-w-36 h-55 md:h-80 w-auto group grid-rows-[1fr_auto]
       bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl hover:border hover:border-blue-500 transition-transform duration-300 transform overflow-hidden animate-slide-in-top"
-      onClick={() => setOnSelectProduct(productProps)}
     >
       {/* Image Container */}
       <div className="grow relative flex min-w-30 justify-center items-center overflow-hidden pt-10">

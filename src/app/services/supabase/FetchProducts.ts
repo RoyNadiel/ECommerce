@@ -1,16 +1,16 @@
-// lib/data/getShoes.ts
-import { supabase } from '../supabase/client'
-import { Shoe } from '../../utils/types/types.'
+// // lib/data/getShoes.ts
+// import { supabase } from '../supabase/client'
+// import { Shoe } from '../../utils/types/types.'
 
-export async function getShoes(): Promise<Shoe[]> {
-  const { data: shoes, error } = await supabase
-    .from<any, Shoe>('shoes')
-    .select('shoes_id, name, size, color, price, image_url, categories(name)')
+// export async function getShoes(): Promise<Shoe[]> {
+//   const { data: shoes, error } = await supabase
+//     .from<any, Shoe>('shoes')
+//     .select('shoes_id, name, size, color, price, image_url, categories(name)')
 
-  if (error) {
-    console.error('Error fetching shoes:', error)
-    return []
-  }
+//   if (error) {
+//     console.error('Error fetching shoes:', error)
+//     return []
+//   }
 
-  return shoes ?? []
-}
+//   return shoes ?? []
+// }
