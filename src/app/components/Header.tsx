@@ -7,6 +7,11 @@ import { ThemeToggle } from "../utils/ThemeToggle";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const desktopLiItem =
+    "text-gray-800 dark:text-gray-300 hover:text-blue-300 transition ease-in-out duration-200 transform hover:scale-105";
+  const mobileLiItem =
+    "text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300";
+
   return (
     <header
       className="fixed top-0 h-fit w-full bg-white flex gap-y-1 items-center justify-around px-4 py-4 z-20
@@ -26,10 +31,10 @@ export default function Header() {
       {/* Menu de Navegación */}
       <nav className="flex md:items-center md:gap-x-10">
         <ul className="hidden md:flex md:gap-x-4">
-          <li className="liItem">
+          <li className={desktopLiItem}>
             <Link href="/">Inicio</Link>
           </li>
-          <li className="liItem">
+          <li className={desktopLiItem}>
             <Link href="/products">Productos</Link>
           </li>
           <li className="text-gray-800 dark:text-gray-400">
@@ -60,14 +65,14 @@ export default function Header() {
           <Link
             href="/"
             onClick={() => setIsMenuOpen(false)}
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300"
+            className={mobileLiItem}
           >
             Inicio
           </Link>
           <Link
             href="/products"
             onClick={() => setIsMenuOpen(false)}
-            className="text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300"
+            className={mobileLiItem}
           >
             Productos
           </Link>
@@ -80,11 +85,6 @@ export default function Header() {
             Contacto
           </Link>
           <ThemeToggle />
-          <div className="px-3 py-2">
-            {/* <button className="w-full bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white px-6 py-2 rounded-full text-sm font-medium transition-all duration-300">
-                  Comenzar
-                </button> */}
-          </div>
         </div>
       </div>
     </header>

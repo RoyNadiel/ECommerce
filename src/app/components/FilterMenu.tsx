@@ -63,7 +63,7 @@ export default function FilterMwnu(props: Props) {
     <section>
       {/* Menu */}
       <div
-        className="sticky top-20 w-full grid grid-cols-1 gap-x-10 gap-y-3 p-3 md:p-0 z-10 
+        className="sticky top-20 w-full grid grid-cols-1 gap-x-10 gap-y-3 p-3 md:p-5 z-10 
         bg-white text-black dark:text-white dark:bg-gray-900 rounded-md shadow-md mb-14 border border-gray-300 dark:border-gray-800
         sm:grid-cols-2 lg:grid-cols-4"
       >

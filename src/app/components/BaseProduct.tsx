@@ -71,7 +71,7 @@ export function BaseProduct(productProps: Product) {
           {productProps.name}
           {(productProps.category === "Calzado" ||
             productProps.category === "Prenda") && (
-            <span className="ml-2 text-xs md:text-md lg:text-lg text-gray-700 dark:text-gray-300">
+            <span className="ml-1 text-xs md:text-md lg:text-lg text-gray-700 dark:text-gray-300">
               #{productProps.size}
             </span>
           )}

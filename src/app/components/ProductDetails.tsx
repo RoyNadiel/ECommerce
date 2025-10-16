@@ -227,7 +227,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
           {/* BOTONES */}
           <div className="w-full inline-flex justify-evenly items-center gap-x-4 self-end">
             <button
-              className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-2xl text-black dark:text-white self-center cursor-pointer hover:bg-blue-600 active:bg-blue-500"
+              className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-2xl text-black dark:text-white self-center cursor-pointer hover:text-white hover:bg-blue-600 active:bg-blue-500"
               onClick={copyActualURL}
             >
               <ClipboardCopy size={18}></ClipboardCopy>Copiar URL

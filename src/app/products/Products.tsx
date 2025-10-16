@@ -1,8 +1,8 @@
 "use client";
-import { BaseProduct } from "../components/BaseProduct";
-import { Product } from "../utils/types/types.";
 import Link from "next/link";
 import { useDeferredValue, useState, useMemo } from "react";
+import { BaseProduct } from "../components/BaseProduct";
+import { Product } from "../utils/types/types.";
 import FilterMenu from "../components/FilterMenu";
 
 type Props = {
@@ -20,17 +20,17 @@ export default function Products({ products }: Props) {
 
   const filteredProducts = useMemo(() => {
     return products
-      .filter((s) => {
+      .filter((product) => {
         if (
           deferredQuery &&
-          !s.name.toLowerCase().includes(deferredQuery.toLowerCase())
+          !product.name.toLowerCase().includes(deferredQuery.toLowerCase())
         )
           return false;
-        if (category !== "TodasLasCategorias" && s.category !== category)
+        if (category !== "TodasLasCategorias" && product.category !== category)
           return false;
         // Stock filtrado si quieres activarlo
-        // if (stock === "Stock" && s.size === 0) return false;
-        // if (stock === "Sin Stock" && s.size > 0) return false;
+        if (stock === "Stock" && product.stock === 0) return false;
+        if (stock === "Sin Stock" && product.stock > 0) return false;
         return true;
       })
       .sort((a, b) => {
@@ -54,7 +54,7 @@ export default function Products({ products }: Props) {
   };
 
   return (
-    <div className="w-full min-h-screen px-2 sm:px-12 pt-22">
+    <div className="w-full min-h-screen px-2 pb-2 sm:px-12 pt-22">
       {/* FILTER MENU */}
       <FilterMenu
         query={query}
@@ -69,7 +69,7 @@ export default function Products({ products }: Props) {
         filteredProducts={filteredProducts.length}
       />
       {/* Productos */}
-      <div
+      <main
         className="
         w-full 
         grid
@@ -89,7 +89,7 @@ export default function Products({ products }: Props) {
             <BaseProduct {...product} />
           </Link>
         ))}
-      </div>
+      </main>
     </div>
   );
 }

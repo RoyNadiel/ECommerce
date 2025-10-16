@@ -1,13 +1,9 @@
-// import { getShoes } from "../services/supabase/FetchProducts";
 import { BaseProduct } from "./BaseProduct";
 import { products } from "../data/products";
 import Link from "next/link";
 export const revalidate = 120; // segundos
 
-export default async function Home() {
-  // const shoes = await getShoes();
-  // if (!shoes.length) return <h1>Not Products Found</h1>;
-
+export default function Home() {
   return (
     <div
       className="w-full flex flex-col min-h-screen px-2 pb-4 pt-22
@@ -17,7 +13,7 @@ export default async function Home() {
         {/* Decorative elements */}
         <div className="absolute top-1/5 left-1/12 w-24 h-24 bg-gradient-to-r from-blue-400/50 to-purple-500/50 rounded-full opacity-20 blur-xl animate-pulse"></div>
         <div className="absolute bottom-1/4 -right-4 w-32 h-32 bg-gradient-to-r from-purple-400 to-pink-500 rounded-full opacity-20 blur-xl animate-pulse delay-1000"></div>
-
+        {/* HERO */}
         <div className="flex flex-col justify-center items-center gap-y-4">
           <h2 className="text-center text-3xl sm:text-5xl -tracking-wide font-extrabold bg-gradient-to-r from-indigo-500 to-pink-500 dark:from-indigo-300  dark:to-pink-300 bg-clip-text text-transparent animate-fade-in">
             ¡Bienvenido A Nuestra Tienda!
