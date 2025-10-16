@@ -1,6 +1,6 @@
 import { products } from "../../data/products";
 import { use } from "react";
-import ProductDetailsClient from "./ProductDetailsClient"; // 👈 client wrapper
+import ProductDetailsClient from "./ProductDetailsClient";
 
 export default function ProductPage({
   params,
