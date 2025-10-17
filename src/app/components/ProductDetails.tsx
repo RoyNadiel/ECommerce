@@ -168,8 +168,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
           {/* DESCRIPCIÓN */}
           <>
             <p className={`text-sm md:text-lg ${backdropForFeatures}`}>
-              Una camisa clásica de corte regular, confeccionada en tela ligera
-              y transpirable que garantiza comodidad durante todo el día.
+              {product.description}
             </p>
 
             {product.keyFeatures.length > 0 && (

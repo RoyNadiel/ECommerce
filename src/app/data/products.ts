@@ -116,6 +116,8 @@ export const productsArray: Product[] = [
     product_id: 1,
     category: "Calzado",
     name: "Deportivas 'AirMax'",
+    description:
+      "Zapatillas ligeras con amortiguación de aire ideales para entrenamiento o uso diario.",
     price: 120.99,
     state: "Nuevo",
     stock: 50,
@@ -134,6 +136,8 @@ export const productsArray: Product[] = [
     product_id: 2,
     category: "Calzado",
     name: "Botines de Cuero Clásicos",
+    description:
+      "Botines resistentes de cuero genuino con diseño atemporal y suela antideslizante.",
     price: 85.5,
     state: "Usado",
     stock: 12,
@@ -148,6 +152,8 @@ export const productsArray: Product[] = [
     product_id: 3,
     category: "Calzado",
     name: "Sandalias Playeras",
+    description:
+      "Sandalias cómodas y ligeras de secado rápido, perfectas para la playa o la piscina.",
     price: 15.0,
     state: "Nuevo",
     stock: 200,
@@ -162,6 +168,8 @@ export const productsArray: Product[] = [
     product_id: 4,
     category: "Calzado",
     name: "Tacones Elegantes",
+    description:
+      "Tacones de charol con acabado brillante y taco de 9 cm, ideales para eventos formales.",
     price: 65.99,
     state: "Nuevo",
     stock: 35,
@@ -178,13 +186,15 @@ export const productsArray: Product[] = [
     product_id: 5,
     category: "Prenda",
     name: "Sudadera con Capucha",
+    description:
+      "Sudadera suave y cómoda de algodón con capucha y bolsillo tipo canguro.",
     price: 45.0,
     state: "Nuevo",
     stock: 80,
     keyFeatures: ["80% Algodón", "Bolsillo canguro"],
     image_url: "/images/clothing/sudadera.jpg",
     prenda_id: 201,
-    size: 50, // Asumimos talla M (por ejemplo)
+    size: 50,
     brand: "Adidas",
     color: "Gris",
   },
@@ -192,6 +202,8 @@ export const productsArray: Product[] = [
     product_id: 6,
     category: "Prenda",
     name: "Jeans Slim Fit Desgastados",
+    description:
+      "Jeans con corte ajustado y efecto desgastado para un look moderno y urbano.",
     price: 55.9,
     state: "Usado",
     stock: 15,
@@ -206,13 +218,15 @@ export const productsArray: Product[] = [
     product_id: 7,
     category: "Prenda",
     name: "Camisa de Lino Manga Corta",
+    description:
+      "Camisa fresca de lino 100%, ideal para climas cálidos y ocasiones informales.",
     price: 35.5,
     state: "Nuevo",
     stock: 60,
     keyFeatures: ["100% Lino", "Ideal para verano"],
     image_url: "/images/clothing/camisa.jpg",
     prenda_id: 203,
-    size: 48, // Asumimos talla S
+    size: 48,
     brand: "H&M",
     color: "Blanco",
   },
@@ -220,13 +234,15 @@ export const productsArray: Product[] = [
     product_id: 8,
     category: "Prenda",
     name: "Chaqueta Impermeable",
+    description:
+      "Chaqueta técnica resistente al agua con bolsillos sellados para máxima protección.",
     price: 95.0,
     state: "Nuevo",
     stock: 25,
     keyFeatures: ["Resistente al agua", "Bolsillos sellados"],
     image_url: "/images/clothing/chaqueta.jpg",
     prenda_id: 204,
-    size: 52, // Asumimos talla L
+    size: 52,
     brand: "North Face",
     color: "Verde Militar",
   },
@@ -234,6 +250,8 @@ export const productsArray: Product[] = [
     product_id: 9,
     category: "Prenda",
     name: "Vestido de Noche",
+    description:
+      "Vestido largo de satén con corte sirena, ideal para eventos elegantes y formales.",
     price: 150.0,
     state: "Usado",
     stock: 5,
@@ -248,6 +266,8 @@ export const productsArray: Product[] = [
     product_id: 10,
     category: "Prenda",
     name: "Pantalón Chino",
+    description:
+      "Pantalón clásico de corte recto y tela elástica, ideal para uso diario o casual.",
     price: 40.0,
     state: "Nuevo",
     stock: 70,
@@ -264,6 +284,8 @@ export const productsArray: Product[] = [
     product_id: 11,
     category: "Farmaco",
     name: "Alcohol Desinfectante",
+    description:
+      "Solución antiséptica al 70% ideal para limpieza de manos y superficies.",
     price: 1.5,
     state: "Nuevo",
     stock: 300,
@@ -275,6 +297,8 @@ export const productsArray: Product[] = [
     product_id: 12,
     category: "Farmaco",
     name: "Vitamina C Efervescente",
+    description:
+      "Tabletas efervescentes de vitamina C para reforzar el sistema inmunológico.",
     price: 8.99,
     state: "Nuevo",
     stock: 150,
@@ -286,6 +310,8 @@ export const productsArray: Product[] = [
     product_id: 13,
     category: "Farmaco",
     name: "Ibuprofeno 400mg (Blister)",
+    description:
+      "Antiinflamatorio y analgésico eficaz para aliviar dolores leves y moderados.",
     price: 2.1,
     state: "Nuevo",
     stock: 450,
@@ -297,6 +323,8 @@ export const productsArray: Product[] = [
     product_id: 14,
     category: "Farmaco",
     name: "Venda Elástica Deportiva",
+    description:
+      "Venda elástica autoadhesiva para soporte y protección de articulaciones.",
     price: 6.5,
     state: "Nuevo",
     stock: 100,
@@ -308,6 +336,8 @@ export const productsArray: Product[] = [
     product_id: 15,
     category: "Farmaco",
     name: "Protector Solar SPF 50",
+    description:
+      "Crema solar de alta protección UVA/UVB resistente al agua, ideal para uso diario.",
     price: 18.0,
     state: "Nuevo",
     stock: 90,
@@ -319,6 +349,8 @@ export const productsArray: Product[] = [
     product_id: 16,
     category: "Farmaco",
     name: "Paracetamol 500mg (Blister)",
+    description:
+      "Medicamento analgésico y antipirético para aliviar el dolor y reducir la fiebre.",
     price: 3.5,
     state: "Nuevo",
     stock: 500,
