@@ -31,18 +31,17 @@ export function BaseProduct(productProps: Product) {
 
   return (
     <div
-      className="flex flex-col min-w-36 h-55 md:h-80 w-auto group grid-rows-[1fr_auto]
+      className="flex flex-col min-w-36 h-70 md:h-110 w-auto group grid-rows-[1fr_auto]
       bg-white dark:bg-gray-900 rounded-2xl shadow-lg hover:shadow-xl hover:border hover:border-blue-500 transition-transform duration-300 transform overflow-hidden animate-slide-in-top"
     >
       {/* Image Container */}
-      <div className="grow relative flex min-w-30 justify-center items-center overflow-hidden pt-10">
+      <div className="grow relative flex w-full justify-center items-center overflow-hidden">
         <Image
           src={productProps.image_url}
           alt={productProps.name}
           width={140}
           height={140}
-          className="w-25 border-blue-300 h-fit object-contain group-hover:scale-105 transition-transform duration-300
-          md:w-65"
+          className="w-full border-blue-300 object-cover group-hover:scale-105 transition-transform duration-300"
         />
 
         {/* Category Badge*/}
@@ -59,10 +58,6 @@ export function BaseProduct(productProps: Product) {
 
       {/* Content */}
       <div className="flex flex-col items-start px-4 py-2">
-        {/* PRODUCT STATE */}
-        {/* <div className="text-[8px] md:text-xs font-medium text-gray-700 dark:text-gray-300">
-            {productProps.state}
-        </div> */}
         {/* Product Name & Color*/}
         <h3
           className="text-xs xs:text-sm font-semibold text-gray-900 dark:text-gray-100 line-clamp-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200
@@ -85,15 +80,6 @@ export function BaseProduct(productProps: Product) {
             {formatPrice(priceVES, "VES")}
           </span>
         </div>
-
-        {/* Buy Button */}
-        {/* <button
-          className="w-full flex items-center justify-center gap-2 py-1 px-2 text-xs bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-xl transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl
-          md:py-2 md:px-4 md:text-lg"
-        >
-          <ShoppingCartIcon className="w-3 h-3"/>
-          Comprar
-        </button> */}
       </div>
     </div>
   );

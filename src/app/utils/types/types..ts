@@ -4,7 +4,8 @@ export type BaseProduct = {
   price: number;
   state: "Nuevo" | "Usado";
   stock: number;
-  caracteristicas: string[];
+  description?: string;
+  keyFeatures: string[];
   image_url: string;
 };
 
@@ -36,6 +37,7 @@ export type Categories = {
   Prenda: string;
   Farmaco: string;
 };
+
 export type BcvRate = {
   current: {
     usd: number;

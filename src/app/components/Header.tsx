@@ -2,8 +2,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { Menu, X, CloudSunRain } from "lucide-react";
-import { ThemeToggle } from "../utils/ThemeToggle";
-
+import { useClickOutside } from "../hooks/useClickOutside";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -11,6 +10,7 @@ export default function Header() {
     "text-gray-800 dark:text-gray-300 hover:text-blue-300 transition ease-in-out duration-200 transform hover:scale-105";
   const mobileLiItem =
     "text-gray-700 dark:text-gray-300 hover:text-blue-600 block px-3 py-2 text-base font-medium transition-all duration-300";
+  const ref = useClickOutside<HTMLDivElement>(() => setIsMenuOpen(false));
 
   return (
     <header
@@ -43,15 +43,15 @@ export default function Header() {
         </ul>
       </nav>
       {/* Mobile Menu */}
-      <div className="md:hidden relative z-100">
+      <div className="md:hidden relative z-100" ref={ref}>
         <button
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-gray-700 hover:text-blue-600 p-2 rounded-md transition-all duration-300"
+          className="text-gray-300 hover:text-blue-600 p-2 rounded-md transition-all duration-300"
         >
           {isMenuOpen ? (
             <X className="w-6 h-6" />
           ) : (
-            <Menu color="#ccc" className="w-6 h-6" />
+            <Menu className="w-6 h-6" />
           )}
         </button>
       </div>
@@ -84,7 +84,6 @@ export default function Header() {
           >
             Contacto
           </Link>
-          <ThemeToggle />
         </div>
       </div>
     </header>

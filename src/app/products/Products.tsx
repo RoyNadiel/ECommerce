@@ -74,11 +74,10 @@ export default function Products({ products }: Props) {
         w-full 
         grid
         grid-cols-2
-        xs:grid-cols-3
-        lg:grid-cols-4
-        xl:grid-cols-5
-        2xl:grid-cols-6
         gap-2
+        xs:grid-cols-3
+        xl:grid-cols-4 xl:gap-4
+        2xl:grid-cols-5
       "
       >
         {filteredProducts.map((product) => (

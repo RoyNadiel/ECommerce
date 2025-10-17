@@ -3,16 +3,12 @@ import Image from "next/image";
 import { Product } from "../utils/types/types.";
 import { ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { useState } from "react";
-import {
-  ShoppingCart,
-  Check,
-  Sparkles,
-  ClipboardCopy,
-  MoveLeft,
-} from "lucide-react";
+import { Check, Sparkles, ClipboardCopy, MoveLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import WSP from "public/wsp";
+import NavigationArrows from "../shared/NavigationArrows";
+import next from "next";
 type ProductDetails = {
   product: Product;
   priceVES: number;
@@ -25,8 +21,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
     product.image_url,
     "/Sharingan.png",
     "/products/EYE.png",
-    "/products/converse-1.png",
-    "/products/tommy-1.png",
+    "/next.svg",
   ];
   const nextImage = () => {
     setCurrentIndex((prev) => (prev + 1) % images.length);
@@ -51,8 +46,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
     }
   };
 
-  const backdropForFeatures = `text-gray-900 bg-white/50 border border-gray-300 rounded-lg p-4
-   dark:text-gray-300 dark:bg-gray-800 dark:border-gray-700`;
+  const backdropForFeatures = `text-gray-900 bg-white/50 border border-gray-300 rounded-lg p-6 dark:text-gray-300 dark:bg-gray-800 dark:border-gray-700`;
 
   return (
     // SCREEN
@@ -62,7 +56,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
     >
       <button
         onClick={goBack}
-        className="absolute top-19 lg::top-18 left-8 w-fit inline-flex items-center gap-1 text-gray-700 dark:text-gray-300 text-sm lg:text-md px-2 py-1 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-100"
+        className="absolute top-19 lg:top-18 left-8 w-fit inline-flex items-center gap-1 text-gray-700 dark:text-gray-300 text-sm lg:text-md px-2 py-1 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors z-10"
       >
         <MoveLeft className="w-4 lg:w-4" />
         Volver
@@ -71,7 +65,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
       {/* MAIN */}
       <section className="w-full h-fit grid grid-rows-[1fr_auto] justify-items-center gap-y-10">
         {/* Main Image */}
-        <div className="relative w-full max-h-60 md:max-h-100 flex justify-center items-center py-30 overflow-hidden group rounded-xl bg-white dark:bg-gray-900 shadow-xl shadow-blue-400/50">
+        <div className="relative w-full max-h-60 md:min-h-100 md:max-h-100 flex justify-center items-center py-30 overflow-hidden group rounded-xl bg-white dark:bg-gray-900 shadow-xl shadow-blue-400/50">
           <Image
             width={500}
             height={500}
@@ -81,22 +75,11 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
           />
 
           {/* Navigation Arrows */}
-          {images.length > 1 && (
-            <>
-              <button
-                onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg"
-              >
-                <ChevronLeft className="w-5 h-5 text-gray-700  dark:text-gray-300" />
-              </button>
-              <button
-                onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-800 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg"
-              >
-                <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
-              </button>
-            </>
-          )}
+          <NavigationArrows
+            images={images}
+            prevImage={prevImage}
+            nextImage={nextImage}
+          />
 
           {/* Zoom Indicator */}
           <div className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -130,7 +113,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
       </section>
 
       {/* MAIN ARTICLE */}
-      <article className="w-full h-fit flex flex-col justify-between gap-y-8">
+      <article className="w-full h-fit flex flex-col justify-between gap-y-2">
         {/* NOMBRE / ESTADO / TALLA */}
         <div className="flex flex-col items-start gap-y-6">
           <section className="flex flex-col">
@@ -142,7 +125,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
               )}{" "}
               {product.state}
             </span>
-            <h2 className="inline-flex gap-3 text-3xl md:text-4xl font-bold uppercase text-gray-900 dark:text-white tracking-widest">
+            <h2 className="inline-flex gap-2 text-2xl md:text-4xl font-bold uppercase text-gray-900 dark:text-white tracking-widest">
               {product.name}
               {(product.category === "Calzado" ||
                 product.category === "Prenda") && (
@@ -160,29 +143,26 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
                 currency: "USD",
               }).format(product.price)}
             </h3>
-            <h4 className="text-lg md:text-xl font-medium text-green-600">
+            <h4 className="text-lg md:text-xl font-medium text-gray-800 dark:text-gray-300">
               {formatPrice(priceVES, "VES")}
             </h4>
-            <div className="text-sm md:text-md text-gray-700 dark:text-white font-semibold self-start mt-2">
-              Metodos de Pago:
-            </div>
-            <div className="text-sm md:text-md text-gray-900 dark:text-gray-300 font-medium self-start">
+            <div className="text-sm md:text-md text-gray-900 dark:text-gray-300 font-medium self-start mt-2">
               Efectivo, Pago Movil, Transferencia Bancaria
             </div>
           </div>
           {/* DESCRIPCION Y CARACTERISTICAS */}
-          <div>
+          <>
             <p className={`text-sm md:text-lg ${backdropForFeatures}`}>
               Una camisa clásica de corte regular, confeccionada en tela ligera
               y transpirable que garantiza comodidad durante todo el día.{" "}
             </p>
-            {product.caracteristicas.length > 0 && (
-              <div className={`${backdropForFeatures} mt-4`}>
+            {product.keyFeatures.length > 0 && (
+              <div className={`${backdropForFeatures} w-full`}>
                 <div className="text-lg md:text-xl xl:text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                   Caracteristicas
                 </div>
                 <ul className="text-gray-900 dark:text-gray-300 list-none list-inside space-y-2">
-                  {product.caracteristicas.map((car, index) => (
+                  {product.keyFeatures.map((car, index) => (
                     <li
                       key={index}
                       className="flex items-center gap-3 text-sm md:text-md xl:text-lg text-gray-800 dark:text-gray-300 tracking-wide"
@@ -196,7 +176,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
                 </ul>
               </div>
             )}
-          </div>
+          </>
           {/* STOCK / COLOR / MARCA */}
           <div
             className={`${backdropForFeatures} w-full flex flex-col gap-y-2`}
@@ -205,7 +185,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
               product.category === "Prenda") && (
               <div className="text-sm md:text-lg flex justify-between gap-2 font-medium dark:text-gray-200 text-gray-700">
                 Color
-                <span className="text-sm md:text-md dark:text-white text-gray-800 bg-green-200 border border-green-400 px-2 py-1 rounded-full">
+                <span className="text-sm md:text-md text-gray-900 bg-green-200 dark:bg-green-600 border border-green-400 px-2 py-1 rounded-full">
                   {product.color}
                 </span>
               </div>
@@ -217,11 +197,11 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
               </div>
             </div>
             {product.category === "Prenda" && (
-              <div className="text-sm md:text-lg flex gap-2 font-medium dark:text-gray-300 text-gray-700">
+              <div className="text-sm md:text-lg flex justify-between gap-2 font-medium dark:text-gray-300 text-gray-700">
                 Marca:
-                <div className="text-sm md:text-lg dark:text-white text-gray-900">
+                <span className="text-sm md:text-lg dark:text-white text-gray-900 italic">
                   {product.brand}
-                </div>
+                </span>
               </div>
             )}
 

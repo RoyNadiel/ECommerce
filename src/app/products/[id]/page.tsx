@@ -1,4 +1,4 @@
-import { products } from "../../data/products";
+import { productsArray } from "../../data/products";
 import { use } from "react";
 import ProductDetailsClient from "./ProductDetailsClient";
 
@@ -8,8 +8,8 @@ export default function ProductPage({
   params: Promise<{ id: string }>;
 }) {
   const { id } = use(params);
-  const product = products.find((p) => p.product_id.toString() === id);
-  if (!product) return <h1>Producto no encontrado</h1>;
+  const products = productsArray.find((p) => p.product_id.toString() === id);
+  if (!products) return <h1>Producto no encontrado</h1>;
 
-  return <ProductDetailsClient key={product.product_id} product={product} />;
+  return <ProductDetailsClient key={products.product_id} product={products} />;
 }

@@ -1,5 +1,5 @@
 import { BaseProduct } from "./BaseProduct";
-import { products } from "../data/products";
+import { productsArray } from "../data/products";
 import Link from "next/link";
 export const revalidate = 120; // segundos
 
@@ -36,7 +36,7 @@ export default function Home() {
         </Link>
 
         <div className="w-fit h-fit flex flex-wrap justify-center items-center gap-4">
-          {products.slice(0, 3).map((product) => (
+          {productsArray.slice(7, 10).map((product) => (
             <Link
               key={product.product_id}
               href={`./products/${product.product_id}`}
