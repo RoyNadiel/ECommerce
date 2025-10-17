@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-
+import WSP from "public/wsp";
 type ProductDetails = {
   product: Product;
   priceVES: number;
@@ -46,16 +46,18 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
   const copyActualURL = async () => {
     try {
       await navigator.clipboard.writeText(window.location.href);
-      // alert("URL copiada al portapapeles");
     } catch (err) {
       console.error("Error al copiar:", err);
     }
   };
 
+  const backdropForFeatures = `text-gray-900 bg-white/50 border border-gray-300 rounded-lg p-4
+   dark:text-gray-300 dark:bg-gray-800 dark:border-gray-700`;
+
   return (
     // SCREEN
     <div
-      className="relative grid grid-rows-[auto_1fr] h-fit max-w-7xl min-h-screen mx-auto pt-30 pb-4 bg-transparent px-6 gap-y-4
+      className="relative grid grid-rows-[auto_1fr] max-w-7xl min-h-screen mx-auto pt-30 pb-4 bg-transparent px-6 gap-y-4
       md:grid-cols-2 md:grid-rows-1 md:px-8 md:gap-x-10"
     >
       <button
@@ -67,15 +69,15 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
       </button>
 
       {/* MAIN */}
-      <section className="grid grid-rows-[1fr_auto] justify-items-center">
+      <section className="w-full h-fit grid grid-rows-[1fr_auto] justify-items-center gap-y-10">
         {/* Main Image */}
-        <div className="relative w-full max-h-60 md:max-h-120 flex justify-center items-center py-30 overflow-hidden group rounded-xl bg-white dark:bg-gray-900">
+        <div className="relative w-full max-h-60 md:max-h-100 flex justify-center items-center py-30 overflow-hidden group rounded-xl bg-white dark:bg-gray-900 shadow-xl shadow-blue-400/50">
           <Image
             width={500}
             height={500}
             src={images[currentIndex]}
             alt={`${product.name} - Vista ${currentIndex + 1}`}
-            className="w-50 md:w-90 object-contain transition-transform duration-500 group-hover:scale-105"
+            className="w-50 md:w-60 lg:w-80 xl:w-90 object-contain transition-transform duration-500 group-hover:scale-105"
           />
 
           {/* Navigation Arrows */}
@@ -83,15 +85,15 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
             <>
               <button
                 onClick={prevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg hover:bg-white"
+                className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-800 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg"
               >
-                <ChevronLeft className="w-5 h-5 text-gray-700" />
+                <ChevronLeft className="w-5 h-5 text-gray-700  dark:text-gray-300" />
               </button>
               <button
                 onClick={nextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/80 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg hover:bg-white"
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-800 bg-white/80 dark:bg-gray-700/50 backdrop-blur-sm rounded-full p-1 md:p-2 shadow-lg"
               >
-                <ChevronRight className="w-5 h-5 text-gray-700" />
+                <ChevronRight className="w-5 h-5 text-gray-700 dark:text-gray-300" />
               </button>
             </>
           )}
@@ -128,7 +130,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
       </section>
 
       {/* MAIN ARTICLE */}
-      <article className="w-full h-full flex flex-col justify-between gap-y-8">
+      <article className="w-full h-fit flex flex-col justify-between gap-y-8">
         {/* NOMBRE / ESTADO / TALLA */}
         <div className="flex flex-col items-start gap-y-6">
           <section className="flex flex-col">
@@ -144,7 +146,7 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
               {product.name}
               {(product.category === "Calzado" ||
                 product.category === "Prenda") && (
-                <span className="text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-400">
+                <span className="text-sm md:text-lg font-semibold text-gray-800 dark:text-gray-400 tracking-normal">
                   Talla #{product.size}
                 </span>
               )}
@@ -173,43 +175,48 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
             <div className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white my-2">
               Descripción
             </div>
-            <p className="text-sm md:text-lg text-gray-900 dark:text-gray-300">
+            <p className={`text-sm md:text-lg ${backdropForFeatures}`}>
               Una camisa clásica de corte regular, confeccionada en tela ligera
               y transpirable que garantiza comodidad durante todo el día.{" "}
             </p>
             {product.caracteristicas.length > 0 && (
-              <>
-                <div className="text-lg md:text-xl font-semibold text-gray-900 dark:text-white my-2">
+              <div className={`${backdropForFeatures} mt-4`}>
+                <div className="text-lg md:text-xl xl:text-2xl font-semibold text-gray-900 dark:text-white mb-4">
                   Caracteristicas
                 </div>
-                <ul className="text-gray-900 dark:text-gray-300 list-disc list-inside">
+                <ul className="text-gray-900 dark:text-gray-300 list-none list-inside space-y-2">
                   {product.caracteristicas.map((car, index) => (
                     <li
                       key={index}
-                      className="text-sm md:text-md text-gray-800 dark:text-gray-300 tracking-wide"
+                      className="flex items-center gap-3 text-sm md:text-md xl:text-lg text-gray-800 dark:text-gray-300 tracking-wide"
                     >
+                      <span className="shrink-0 bg-green-500 rounded-full px-1.5">
+                        <Check className="shrink-0 w-3 text-green-800"></Check>
+                      </span>
                       {car}
                     </li>
                   ))}
                 </ul>
-              </>
+              </div>
             )}
           </div>
           {/* STOCK / COLOR / MARCA */}
-          <div className="mt-2">
+          <div
+            className={`${backdropForFeatures} w-full flex flex-col gap-y-2`}
+          >
             {(product.category === "Calzado" ||
               product.category === "Prenda") && (
-              <div className="text-sm md:text-lg flex gap-2 font-medium dark:text-gray-200 text-gray-700">
-                Color:
-                <div className="text-sm md:text-lg dark:text-white text-gray-900">
+              <div className="text-sm md:text-lg flex justify-between gap-2 font-medium dark:text-gray-200 text-gray-700">
+                Color
+                <span className="text-sm md:text-md dark:text-white text-gray-800 bg-green-200 border border-green-400 px-2 py-1 rounded-full">
                   {product.color}
-                </div>
+                </span>
               </div>
             )}
-            <div className="text-sm md:text-lg flex gap-2 font-medium dark:text-gray-300 text-gray-700">
-              Cantidad:
-              <div className="text-sm md:text-lg dark:text-white text-gray-900">
-                {product.stock}
+            <div className="text-sm md:text-lg flex items-center justify-between gap-2 font-medium dark:text-gray-300 text-gray-700">
+              Cantidad
+              <div className="text-md md:text-lg dark:text-white text-gray-900">
+                {product.stock} Productos
               </div>
             </div>
             {product.category === "Prenda" && (
@@ -220,23 +227,25 @@ export default function ProductDetails({ product, priceVES }: ProductDetails) {
                 </div>
               </div>
             )}
+
+            {/* BOTONES */}
+            <div className="w-full inline-flex justify-evenly items-center gap-x-4 self-end mt-6">
+              <button
+                className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-md text-black dark:text-white self-center cursor-pointer hover:text-white hover:bg-blue-600 active:bg-blue-500"
+                onClick={copyActualURL}
+              >
+                <ClipboardCopy size={18}></ClipboardCopy>Copiar URL
+              </button>
+              <Link
+                className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow-2 justify-center items-center gap-x-2 bg-blue-800 rounded-md text-white self-center cursor-pointer hover:bg-blue-600"
+                href={"https://wa.me/+584123087333"}
+                target="_blank"
+              >
+                <WSP></WSP>
+                Comprar
+              </Link>
+            </div>
           </div>
-        </div>
-        {/* BOTONES */}
-        <div className="w-full inline-flex justify-evenly items-center gap-x-4 self-end">
-          <button
-            className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow justify-center items-center gap-x-2 bg-transparent border-2 border-blue-600 rounded-2xl text-black dark:text-white self-center cursor-pointer hover:text-white hover:bg-blue-600 active:bg-blue-500"
-            onClick={copyActualURL}
-          >
-            <ClipboardCopy size={18}></ClipboardCopy>Copiar URL
-          </button>
-          <Link
-            className="text-sm md:text-lg py-2 px-3 md:py-2 md:px-4 inline-flex grow-2 justify-center items-center gap-x-2 bg-blue-800 rounded-2xl text-white self-center cursor-pointer hover:bg-blue-600"
-            href={"https://wa.me/+584123087333"}
-            target="_blank"
-          >
-            <ShoppingCart size={18}></ShoppingCart>Comprar
-          </Link>
         </div>
       </article>
     </div>
