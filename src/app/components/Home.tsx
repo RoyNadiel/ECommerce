@@ -35,8 +35,17 @@ export default function Home() {
           ¡Explorar Catálogo!
         </Link>
 
-        <div className="w-fit h-fit flex flex-wrap justify-center items-center gap-4">
-          {productsArray.slice(7, 10).map((product) => (
+        <div
+          className="w-fit h-fit
+        grid
+        grid-cols-2
+        gap-2
+        xs:grid-cols-3
+        xl:grid-cols-4 xl:gap-4
+        2xl:grid-cols-5
+        "
+        >
+          {productsArray.slice(7, 11).map((product) => (
             <Link
               key={product.product_id}
               href={`./products/${product.product_id}`}
